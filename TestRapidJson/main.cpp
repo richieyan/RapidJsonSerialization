@@ -11,9 +11,9 @@
 #include "rapidjson/reader.h"
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/document.h"
+#include "Player.h"
 
-#include "FastData.h"
-#include "FastReader.h"
+#include "Serializable.h"
 
 using namespace rapidjson;
 using namespace std;
@@ -61,41 +61,42 @@ void test_life()
 
 int main(int, char*[]) {
     
-    using namespace fs;
+    Player p;
+    p.name = "higgs";
+    p.age = 10;
+    p.level = 101;
+    p.skills.insert({ 3, 2 });
+    p.skills.insert({ 2, 23});
+    p.skills.insert({ 11, 23 });
+    p.titles.push_back("title1");
+    p.titles.push_back("title2");
+    p.titles.push_back("title3");
+    rapidjson::StringBuffer buf;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buf);
+    FastWriter fw(writer);
+    fw.startObject();
+    p.serialize(fw);
+    fw.endObject();
     
-    std::vector<Employee> employees;
+    std::string data = buf.GetString();
+    std::cout << data.c_str() << std::endl;
 
-    employees.push_back(Employee("Milo YIP", 34, true));
-    employees.back().AddDependent(Dependent("Lua YIP", 3, new Education("Happy Kindergarten", 3.5)));
-    employees.back().AddDependent(Dependent("Mio YIP", 1));
+    rapidjson::Document doc;
+    doc.Parse<rapidjson::kParseDefaultFlags>(data.c_str());
     
-    employees.push_back(Employee("Percy TSE", 30, false));
+    Player pp;
+    FastReader fr(doc);
+    pp.deserialize(fr);
+    std::cout << ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
     
-    StringBuffer buf;
-    StringWriter bufWriter(buf);
-    FastWriter writer(bufWriter);
-    writer.putValue(employees);
-    std::cout << buf.GetString() << std::endl;
-    Document d;
-    d.Parse(buf.GetString());
-    employees.clear();
-    if(d.IsArray()){
-        for (int i=0; i<d.Size(); i++) {
-            Employee e;
-            e.deserialize(d[i]);
-            employees.push_back(e);
-        }
-    }
-    std::cout << " deserialize>>>>" << endl;
-    buf.Clear();
-    
-    StringBuffer buf2;
-    StringWriter bufWriter2(buf2);
-    FastWriter writer2(bufWriter2);
-    
-    writer2.putValue(employees);
+    rapidjson::StringBuffer buf2;
+    rapidjson::Writer<rapidjson::StringBuffer> writer2(buf2);
+    FastWriter fw2(writer2);
+    writer2.StartObject();
+    pp.serialize(fw2);
+    writer2.EndObject();
     std::cout << buf2.GetString() << std::endl;
-    
+
     
     return 0;
 }

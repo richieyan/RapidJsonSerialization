@@ -1,71 +1,93 @@
-//
-//  FastReader.h
-//  TestCpp
-//
-//  Created by Richie Yan on 2/9/15.
-//  Copyright (c) 2015 Richie Yan. All rights reserved.
-//
-
-#ifndef __TestCpp__FastReader__
-#define __TestCpp__FastReader__
+#pragma once
 
 #include <string>
 #include <vector>
+#include <map>
 
-#include "rapidjson/reader.h"
-#include "rapidjson/rapidjson.h"
 #include "rapidjson/document.h"
+#include "rapidjson/stringbuffer.h"
+#include "rapidjson/reader.h"
 
-template <typename T>
-struct FastReader {
+#include "TypeConverter.h"
+
+class FastReader {
 public:
-    FastReader(rapidjson::Document& doc,T& target):m_doc(doc),m_target(target){}
+	FastReader(rapidjson::Value & data):m_data(data) {
+	}
+	
+	template<typename Key,typename Value>
+	std::map<Key, Value> getMap(const std::string & name){
+		std::map<Key, Value> rt;
+		auto & value = m_data[name.c_str()];;
+		if (value.IsObject()){
+			for (auto m = value.MemberBegin(); m != value.MemberEnd(); m++){
+				auto key = TypeConverter::convert<Key>(m->name.GetString());
+				auto value = convert<Value>(m->value);
+				rt.insert(std::make_pair(key, value));
+			}
+		}
+		return rt;
+	}
     
-    bool Null() {
-        return true;
+    template<typename Value>
+    std::vector<Value> getVector(const std::string & name){
+        std::vector<Value> rt;
+        auto & value = m_data[name.c_str()];;
+        if (value.IsArray()){
+            for(int i=0;i<value.Size();i++){
+                rt.push_back(convert<Value>(value[i]));
+            }
+        }
+        return rt;
     }
-    bool Bool(bool b) {
-        return true;
-    }
-    bool Int(int i) {
-        return true;
-    }
-    bool Uint(unsigned u) {
-        return true;
-    }
-    bool Int64(int64_t i) {
-        return true;
-    }
-    bool Uint64(uint64_t u) {
-        return true;
-    }
-    bool Double(double d) {
-        return true;
-    }
-    bool String(const char* str, rapidjson::SizeType length, bool copy) {
-        return true;
-    }
-    bool StartObject() {
-        return true;
-    }
-    bool Key(const char* str, rapidjson::SizeType length, bool copy) {
-        return true;
-    }
-    bool EndObject(rapidjson::SizeType memberCount) {
-        return true;
-    }
-    bool StartArray() {
-        return true;
-    }
-    bool EndArray(rapidjson::SizeType elementCount) {
-        return true;
-    }
-    
+	
+
+	template<typename TValue>
+	TValue get(const std::string & name){
+		const rapidjson::Value& value = m_data[name.c_str()];
+		return convert<TValue>(value);
+	}
+
+	template<typename TValue>
+	TValue convert(const rapidjson::Value& value){
+		TValue rt;
+		return rt;
+	}
+
 private:
-    rapidjson::Document & m_doc;
-    bool m_isObj;
-    std::string m_key;
-    T& m_target;
+	rapidjson::Value & m_data;
+
+	bool check(const std::string &name){
+		return m_data.HasMember(name.c_str());
+	}
+	
 };
 
-#endif /* defined(__TestCpp__FastReader__) */
+template<> int64_t FastReader::convert(const rapidjson::Value& value){
+    return value.GetInt64();
+}
+
+template<> uint64_t FastReader::convert(const rapidjson::Value& value){
+    return value.GetUint64();
+}
+
+template<> unsigned FastReader::convert(const rapidjson::Value& value){
+    return value.GetUint();
+}
+
+template<> double FastReader::convert(const rapidjson::Value& value){
+    return value.GetDouble();
+}
+
+template<> bool FastReader::convert(const rapidjson::Value& value){
+    return value.GetBool();
+}
+
+template<> int FastReader::convert(const rapidjson::Value& value){
+    return value.GetInt();
+}
+
+template<> std::string FastReader::convert(const rapidjson::Value& value){
+    return value.GetString();
+}
+

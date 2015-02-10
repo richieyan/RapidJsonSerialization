@@ -13,7 +13,6 @@
 #include <vector>
 #include <string>
 #include "FastWriter.h"
-using namespace fs;
 
 class Person :public Serializable {
 public:
