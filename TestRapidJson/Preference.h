@@ -17,9 +17,6 @@ public:
     int nothing;
     std::string temp;
     std::vector<int> testv;
-    Preference(){
-        regFields();
-    }
     virtual void regFields(){
         //reg fields;
         reg("1",FieldType::BOOLEAN,&music);

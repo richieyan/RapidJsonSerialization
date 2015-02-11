@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestRapidJson/Preference.h"
-            timestampString = "445323424.677028"
+            timestampString = "445325756.047518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "regFields()"
             landmarkType = "5">
          </BreakpointContent>

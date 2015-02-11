@@ -151,5 +151,9 @@ int main(int, char*[]) {
     cout << data.c_str() << endl;
     cout << "-----------deserialize------" << endl;
     test_deserialize(data);
+    
+    Hero h("h111",11,23.0);
+    Hero m(h);
+    cout << m.name << endl;
     return 0;
 }

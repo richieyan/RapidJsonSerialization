@@ -10,12 +10,7 @@
 
 class Player : public Serializable
 {
-public:
-	Player();
-	~Player();
-
 protected:
-    
     virtual void __exSerialize(FastWriter& writer){
         Serializable::put(writer, "ex1", preference);
         Serializable::put(writer, "ex2", heros);
@@ -43,12 +38,3 @@ protected:
         reg("5", FieldType::VECTOR_STRING, &titles);
     }
 };
-
-Player::Player()
-{
-    regFields();
-}
-
-Player::~Player()
-{
-}

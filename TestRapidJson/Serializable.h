@@ -49,17 +49,25 @@ public:
     }
     
     virtual void serialize(FastWriter& writer){
+        if(!__is_reg_fields){
+            regFields();
+            __is_reg_fields = true;
+        }
         __serialize(writer);
         __exSerialize(writer);
+
     }
     
     virtual void deserialize(FastReader & reader){
+        if(!__is_reg_fields){
+            regFields();
+            __is_reg_fields = true;
+        }
         __deserialize(reader);
         __exDeserialize(reader);
     }
     
 protected:
-    
     virtual void regFields() = 0;
     
     ///serialize custom object
@@ -108,6 +116,7 @@ protected:
     }
     
 private:
+    bool __is_reg_fields = false;
     std::vector<Field> __fields;
 };
 
