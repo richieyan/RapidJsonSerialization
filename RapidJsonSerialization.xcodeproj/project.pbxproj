@@ -24,7 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		13115CD41A88BFA200F54633 /* TestRapidJson */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestRapidJson; sourceTree = BUILT_PRODUCTS_DIR; };
+		13115CD41A88BFA200F54633 /* RapidJsonSerialization */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RapidJsonSerialization; sourceTree = BUILT_PRODUCTS_DIR; };
 		13115CD71A88BFA200F54633 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		13115CE01A88BFFE00F54633 /* allocators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allocators.h; sourceTree = "<group>"; };
 		13115CE11A88BFFE00F54633 /* document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = document.h; sourceTree = "<group>"; };
@@ -54,15 +54,15 @@
 		13115CFC1A88BFFE00F54633 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
 		13115CFD1A88BFFE00F54633 /* stringbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringbuffer.h; sourceTree = "<group>"; };
 		13115CFE1A88BFFE00F54633 /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
-		13115D001A88C00F00F54633 /* FastReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastReader.h; sourceTree = "<group>"; };
 		13115D221A8AEC6100F54633 /* Hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
 		13115D251A8AECA400F54633 /* Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preference.h; sourceTree = "<group>"; };
 		13115D271A8AFE5C00F54633 /* CMyString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMyString.cpp; sourceTree = "<group>"; };
 		13115D281A8AFE5C00F54633 /* CMyString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMyString.h; sourceTree = "<group>"; };
+		13115D2B1A8B24F800F54633 /* FastReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FastReader.h; path = serialization/FastReader.h; sourceTree = "<group>"; };
+		13115D2C1A8B24F800F54633 /* FastWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FastWriter.h; path = serialization/FastWriter.h; sourceTree = "<group>"; };
+		13115D2D1A8B24F800F54633 /* Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Serializable.h; path = serialization/Serializable.h; sourceTree = "<group>"; };
+		13115D2E1A8B24F800F54633 /* TypeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypeConverter.h; path = serialization/TypeConverter.h; sourceTree = "<group>"; };
 		135083481A8A4079002B94E2 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		135083491A8A4079002B94E2 /* TypeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeConverter.h; sourceTree = "<group>"; };
-		1350834F1A8A4ED1002B94E2 /* Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializable.h; sourceTree = "<group>"; };
-		135083521A8A5111002B94E2 /* FastWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastWriter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				13115CDE1A88BFF400F54633 /* external */,
-				13115CD61A88BFA200F54633 /* TestRapidJson */,
+				13115CD61A88BFA200F54633 /* Main */,
 				13115CD51A88BFA200F54633 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,25 +88,23 @@
 		13115CD51A88BFA200F54633 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13115CD41A88BFA200F54633 /* TestRapidJson */,
+				13115CD41A88BFA200F54633 /* RapidJsonSerialization */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13115CD61A88BFA200F54633 /* TestRapidJson */ = {
+		13115CD61A88BFA200F54633 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				13115D2A1A8B249500F54633 /* serialization */,
 				135083481A8A4079002B94E2 /* Player.h */,
-				135083491A8A4079002B94E2 /* TypeConverter.h */,
-				13115D001A88C00F00F54633 /* FastReader.h */,
 				13115CD71A88BFA200F54633 /* main.cpp */,
-				1350834F1A8A4ED1002B94E2 /* Serializable.h */,
-				135083521A8A5111002B94E2 /* FastWriter.h */,
 				13115D221A8AEC6100F54633 /* Hero.h */,
 				13115D251A8AECA400F54633 /* Preference.h */,
 				13115D271A8AFE5C00F54633 /* CMyString.cpp */,
 				13115D281A8AFE5C00F54633 /* CMyString.h */,
 			);
+			name = Main;
 			path = TestRapidJson;
 			sourceTree = "<group>";
 		};
@@ -178,12 +176,23 @@
 			path = msinttypes;
 			sourceTree = "<group>";
 		};
+		13115D2A1A8B249500F54633 /* serialization */ = {
+			isa = PBXGroup;
+			children = (
+				13115D2B1A8B24F800F54633 /* FastReader.h */,
+				13115D2C1A8B24F800F54633 /* FastWriter.h */,
+				13115D2D1A8B24F800F54633 /* Serializable.h */,
+				13115D2E1A8B24F800F54633 /* TypeConverter.h */,
+			);
+			name = serialization;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13115CD31A88BFA200F54633 /* TestRapidJson */ = {
+		13115CD31A88BFA200F54633 /* RapidJsonSerialization */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13115CDB1A88BFA200F54633 /* Build configuration list for PBXNativeTarget "TestRapidJson" */;
+			buildConfigurationList = 13115CDB1A88BFA200F54633 /* Build configuration list for PBXNativeTarget "RapidJsonSerialization" */;
 			buildPhases = (
 				13115CD01A88BFA200F54633 /* Sources */,
 				13115CD11A88BFA200F54633 /* Frameworks */,
@@ -193,9 +202,9 @@
 			);
 			dependencies = (
 			);
-			name = TestRapidJson;
+			name = RapidJsonSerialization;
 			productName = TestRapidJson;
-			productReference = 13115CD41A88BFA200F54633 /* TestRapidJson */;
+			productReference = 13115CD41A88BFA200F54633 /* RapidJsonSerialization */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +221,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 13115CCF1A88BFA200F54633 /* Build configuration list for PBXProject "TestRapidJson" */;
+			buildConfigurationList = 13115CCF1A88BFA200F54633 /* Build configuration list for PBXProject "RapidJsonSerialization" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -224,7 +233,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13115CD31A88BFA200F54633 /* TestRapidJson */,
+				13115CD31A88BFA200F54633 /* RapidJsonSerialization */,
 			);
 		};
 /* End PBXProject section */
@@ -319,7 +328,7 @@
 		13115CDC1A88BFA200F54633 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RapidJsonSerialization;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/external";
 			};
 			name = Debug;
@@ -327,7 +336,7 @@
 		13115CDD1A88BFA200F54633 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RapidJsonSerialization;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/external";
 			};
 			name = Release;
@@ -335,7 +344,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13115CCF1A88BFA200F54633 /* Build configuration list for PBXProject "TestRapidJson" */ = {
+		13115CCF1A88BFA200F54633 /* Build configuration list for PBXProject "RapidJsonSerialization" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13115CD91A88BFA200F54633 /* Debug */,
@@ -344,7 +353,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13115CDB1A88BFA200F54633 /* Build configuration list for PBXNativeTarget "TestRapidJson" */ = {
+		13115CDB1A88BFA200F54633 /* Build configuration list for PBXNativeTarget "RapidJsonSerialization" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13115CDC1A88BFA200F54633 /* Debug */,

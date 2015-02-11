@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13115CD31A88BFA200F54633"
-               BuildableName = "TestRapidJson"
-               BlueprintName = "TestRapidJson"
-               ReferencedContainer = "container:TestRapidJson.xcodeproj">
+               BuildableName = "RapidJsonSerialization"
+               BlueprintName = "RapidJsonSerialization"
+               ReferencedContainer = "container:RapidJsonSerialization.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13115CD31A88BFA200F54633"
-            BuildableName = "TestRapidJson"
-            BlueprintName = "TestRapidJson"
-            ReferencedContainer = "container:TestRapidJson.xcodeproj">
+            BuildableName = "RapidJsonSerialization"
+            BlueprintName = "RapidJsonSerialization"
+            ReferencedContainer = "container:RapidJsonSerialization.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13115CD31A88BFA200F54633"
-            BuildableName = "TestRapidJson"
-            BlueprintName = "TestRapidJson"
-            ReferencedContainer = "container:TestRapidJson.xcodeproj">
+            BuildableName = "RapidJsonSerialization"
+            BlueprintName = "RapidJsonSerialization"
+            ReferencedContainer = "container:RapidJsonSerialization.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13115CD31A88BFA200F54633"
-            BuildableName = "TestRapidJson"
-            BlueprintName = "TestRapidJson"
-            ReferencedContainer = "container:TestRapidJson.xcodeproj">
+            BuildableName = "RapidJsonSerialization"
+            BlueprintName = "RapidJsonSerialization"
+            ReferencedContainer = "container:RapidJsonSerialization.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
