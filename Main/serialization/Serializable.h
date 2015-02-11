@@ -30,7 +30,7 @@ enum class FieldType{
     MAP_INT_INT,//map<int,int>
     MAP_STRING_INT,//map<string,int>
     MAP_STRING_STRING,//map<string,string>
-    CUSTOM_OBJECT,//自定义对象类型
+//    CUSTOM_OBJECT,
 };
 
 struct Field {
