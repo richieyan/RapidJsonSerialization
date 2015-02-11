@@ -104,8 +104,7 @@
 				13115D271A8AFE5C00F54633 /* CMyString.cpp */,
 				13115D281A8AFE5C00F54633 /* CMyString.h */,
 			);
-			name = Main;
-			path = TestRapidJson;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		13115CDE1A88BFF400F54633 /* external */ = {

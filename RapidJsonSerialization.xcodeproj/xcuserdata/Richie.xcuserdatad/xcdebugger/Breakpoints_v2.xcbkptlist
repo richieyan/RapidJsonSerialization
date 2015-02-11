@@ -9,7 +9,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TestRapidJson/Preference.h"
+            filePath = "Main/Preference.h"
             timestampString = "445325756.047518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
