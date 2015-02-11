@@ -56,6 +56,7 @@ void fill_player(Player &p){
 }
 int main(int, char*[]) {
     Player p;
+    p.hero = new Hero("point_hero",1,22.0);
     fill_player(p);
     cout << "------------end fill player------" <<endl;
     std::string data = test_serialize(p);

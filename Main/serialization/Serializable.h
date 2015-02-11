@@ -100,14 +100,44 @@ protected:
     //nest serialize object
     void put(FastWriter& writer, const std::string& key, Serializable & value);
     
+    //nest serialize point object
+    void put(FastWriter& writer, const std::string& key, Serializable * value){
+        if(value != nullptr){
+            put(writer,key,*value);
+        }
+    }
+    
     template<typename E>
     void put(FastWriter& writer, const std::string& key, std::vector<E>& valueArray);
     
+    
+    //put point element of vector
+    template<typename E>
+    void put(FastWriter& writer, const std::string& key, std::vector<E*>& valueArray){
+        writer.putValue(key);
+        writer.startArray();
+        for (E* ele : valueArray) {
+            Serializable* obj = dynamic_cast<Serializable*>(ele);
+            writer.startObject();
+            obj->serialize(writer);
+            writer.endObject();
+        }
+        writer.endArray();
+    }
     template<typename T>
     void get(FastReader& reader,const std::string& key,T & value){
         Serializable& obj = dynamic_cast<Serializable&>(value);
         FastReader objReader(reader.getRaw(key));
         obj.deserialize(objReader);
+    }
+    
+    template<typename T>
+    void get(FastReader& reader,const std::string& key,T * value){
+        Serializable* obj = dynamic_cast<Serializable*>(value);
+        if(reader.has(key)){
+            FastReader objReader(reader.getRaw(key));
+            obj->deserialize(objReader);
+        }
     }
     
     template<typename T>

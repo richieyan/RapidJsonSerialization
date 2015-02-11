@@ -14,11 +14,14 @@ protected:
     virtual void __exSerialize(FastWriter& writer){
         Serializable::put(writer, "ex1", preference);
         Serializable::put(writer, "ex2", heros);
+        Serializable::put(writer, "ex3", hero);
     }
     
     virtual void __exDeserialize(FastReader & reader) {
         Serializable::get(reader,"ex1",preference);
         Serializable::get(reader,"ex2",heros);
+        hero = new Hero();
+        Serializable::get(reader, "ex3", hero);
     }
     
 public:
@@ -28,6 +31,8 @@ public:
 	std::map<int, int> skills;//key-value,key must be string
     std::vector<std::string> titles;
     std::vector<Hero> heros;
+    Hero* hero = nullptr;
+    Hero* master = nullptr;
     Preference preference;
 protected:
     virtual void regFields(){
