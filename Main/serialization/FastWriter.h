@@ -46,36 +46,6 @@ public:
         m_writer.Null();
     }
     
-    void put(const std::string& key, std::string value){
-        putValue(key);
-        putValue(value);
-    }
-    
-    void put(const std::string& key, int value){
-        putValue(key);
-        putValue(value);
-    }
-    void put(const std::string& key, unsigned value){
-        putValue(key);
-        putValue(value);
-    }
-    
-    void put(const std::string& key, long long value){
-        putValue(key);
-        putValue(value);
-    }
-    
-    void put(const std::string& key, double value){
-        putValue(key);
-        putValue(value);
-    }
-    
-    void put(const std::string& key, bool value){
-        putValue(key);
-        putValue(value);
-    }
-    
-    
     template<typename E>
     void put(const std::string& key, const std::vector<E>& valueArray){
         putValue(key);
@@ -112,13 +82,7 @@ public:
         }
         endArray();
     }
-    
-    template<typename E>
-    void put(const std::string& key, const std::vector<E*>& valueArray){
-        putValue(key);
-        putValue(valueArray);
-    }
-    
+        
     /// put values only
     void putValue(uint64_t value){
         m_writer.Uint64(value);

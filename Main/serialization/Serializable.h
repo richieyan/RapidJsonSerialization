@@ -33,10 +33,6 @@ enum class FieldType{
     CUSTOM_OBJECT,//自定义对象类型
 };
 
-enum class ExtraType {
-    
-};
-
 struct Field {
     std::string ID;
     FieldType type;

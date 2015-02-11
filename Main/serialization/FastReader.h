@@ -64,10 +64,6 @@ public:
 
 private:
 	rapidjson::Value & m_data;
-
-	bool check(const std::string &name){
-		return m_data.HasMember(name.c_str());
-	}
 	
 };
 
