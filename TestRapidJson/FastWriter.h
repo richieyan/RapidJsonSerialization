@@ -143,6 +143,9 @@ public:
     void putValue(int value){
         m_writer.Int(value);
     }
+    void putValue(bool value){
+        m_writer.Bool(value);
+    }
 
 private:
 
