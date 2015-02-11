@@ -31,7 +31,7 @@ If you have a simple POD object, all you need to is to register you fields.
 ```
 
 if you want to nest a object and serialize
-```
+```cpp
 
  	#include "Serializable.h"
  	class Skill:public Serializable {
@@ -65,7 +65,9 @@ if you want to nest a object and serialize
     		}
 	}
 ```
-if you want nest std::vector<YourObject>,please implements copy constructor of YourObject.
+if you want nest YourObject with a std::vector,please implements copy constructor of YourObject.
+There is a problem if you not implements the copy constructor.(I'm not good at C++ for now, and can not figure it out now)
+
 ```cpp
 	public Skill:public Serializable{
 	...
@@ -89,6 +91,7 @@ if you want nest std::vector<YourObject>,please implements copy constructor of Y
     		}
 	}
 ```
+You can view the example of [main.cpp](https://github.com/richieyan/RapidJsonSerialization/blob/master/Main/main.cpp).
 
 I will make a cocos2d-x version later.
 
