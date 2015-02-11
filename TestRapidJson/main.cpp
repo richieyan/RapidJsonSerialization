@@ -73,23 +73,11 @@ std::string test_serialize(Player &p){
 void test_deserialize(const std::string & data){
     
     std::cout << data.c_str() << std::endl;
-    
-    rapidjson::Document doc;
-    doc.Parse<rapidjson::kParseDefaultFlags>(data.c_str());
-    
     Player pp;
-    FastReader fr(doc);
-    pp.deserialize(fr);
-    
+    pp.deserialize(data);
     std::cout << "-------print result--------" << std::endl;
-    
-    rapidjson::StringBuffer buf;
-    rapidjson::Writer<rapidjson::StringBuffer> writer(buf);
-    FastWriter fw(writer);
-    fw.startObject();
-    pp.serialize(fw);
-    fw.endObject();
-    std::cout << buf.GetString() << std::endl;
+    pp.serialize();
+//    std::cout << rt << std::endl;
 
 }
 

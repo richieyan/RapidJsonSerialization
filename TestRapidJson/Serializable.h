@@ -48,6 +48,16 @@ public:
     Serializable(){
     }
     
+    virtual std::string serialize(){
+        rapidjson::StringBuffer buf;
+        rapidjson::Writer<rapidjson::StringBuffer> writer(buf);
+        FastWriter fw(writer);
+        fw.startObject();
+        serialize(fw);
+        fw.endObject();
+        return buf.GetString();
+    }
+    
     virtual void serialize(FastWriter& writer){
         if(!__is_reg_fields){
             regFields();
@@ -56,6 +66,13 @@ public:
         __serialize(writer);
         __exSerialize(writer);
 
+    }
+    
+    virtual void deserialize(const std::string& data){
+        rapidjson::Document doc;
+        doc.Parse<rapidjson::kParseDefaultFlags>(data.c_str());
+        FastReader fr(doc);
+        deserialize(fr);
     }
     
     virtual void deserialize(FastReader & reader){
