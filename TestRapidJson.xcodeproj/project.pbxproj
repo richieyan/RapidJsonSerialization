@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13115CD81A88BFA200F54633 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13115CD71A88BFA200F54633 /* main.cpp */; };
-		135083501A8A4ED1002B94E2 /* Serializable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1350834E1A8A4ED1002B94E2 /* Serializable.cpp */; };
-		135083531A8A5111002B94E2 /* FastWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 135083511A8A5111002B94E2 /* FastWriter.cpp */; };
+		13115D291A8AFE5C00F54633 /* CMyString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13115D271A8AFE5C00F54633 /* CMyString.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,11 +55,13 @@
 		13115CFD1A88BFFE00F54633 /* stringbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringbuffer.h; sourceTree = "<group>"; };
 		13115CFE1A88BFFE00F54633 /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
 		13115D001A88C00F00F54633 /* FastReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastReader.h; sourceTree = "<group>"; };
+		13115D221A8AEC6100F54633 /* Hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
+		13115D251A8AECA400F54633 /* Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preference.h; sourceTree = "<group>"; };
+		13115D271A8AFE5C00F54633 /* CMyString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMyString.cpp; sourceTree = "<group>"; };
+		13115D281A8AFE5C00F54633 /* CMyString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMyString.h; sourceTree = "<group>"; };
 		135083481A8A4079002B94E2 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		135083491A8A4079002B94E2 /* TypeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeConverter.h; sourceTree = "<group>"; };
-		1350834E1A8A4ED1002B94E2 /* Serializable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Serializable.cpp; sourceTree = "<group>"; };
 		1350834F1A8A4ED1002B94E2 /* Serializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serializable.h; sourceTree = "<group>"; };
-		135083511A8A5111002B94E2 /* FastWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FastWriter.cpp; sourceTree = "<group>"; };
 		135083521A8A5111002B94E2 /* FastWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastWriter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,10 +100,12 @@
 				135083491A8A4079002B94E2 /* TypeConverter.h */,
 				13115D001A88C00F00F54633 /* FastReader.h */,
 				13115CD71A88BFA200F54633 /* main.cpp */,
-				1350834E1A8A4ED1002B94E2 /* Serializable.cpp */,
 				1350834F1A8A4ED1002B94E2 /* Serializable.h */,
-				135083511A8A5111002B94E2 /* FastWriter.cpp */,
 				135083521A8A5111002B94E2 /* FastWriter.h */,
+				13115D221A8AEC6100F54633 /* Hero.h */,
+				13115D251A8AECA400F54633 /* Preference.h */,
+				13115D271A8AFE5C00F54633 /* CMyString.cpp */,
+				13115D281A8AFE5C00F54633 /* CMyString.h */,
 			);
 			path = TestRapidJson;
 			sourceTree = "<group>";
@@ -231,8 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				135083501A8A4ED1002B94E2 /* Serializable.cpp in Sources */,
-				135083531A8A5111002B94E2 /* FastWriter.cpp in Sources */,
+				13115D291A8AFE5C00F54633 /* CMyString.cpp in Sources */,
 				13115CD81A88BFA200F54633 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

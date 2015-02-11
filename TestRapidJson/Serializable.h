@@ -45,10 +45,33 @@ struct Field {
 
 class Serializable {
 public:
-    virtual void serialize(FastWriter& writer) const = 0;
-    virtual void deserialize(FastReader & reader) = 0;
+    Serializable(){
+    }
+    
+    virtual void serialize(FastWriter& writer){
+        __serialize(writer);
+        __exSerialize(writer);
+    }
+    
+    virtual void deserialize(FastReader & reader){
+        __deserialize(reader);
+        __exDeserialize(reader);
+    }
     
 protected:
+    
+    virtual void regFields() = 0;
+    
+    ///serialize custom object
+    virtual void __exSerialize(FastWriter& writer){
+        
+    }
+    
+    ///deserialize custom object
+    virtual void __exDeserialize(FastReader & reader){
+        
+    }
+    
     void __deserialize(FastReader & reader);
     void __serialize(FastWriter& writer) const;
     void reg(std::string ID, FieldType type, void* addr);
@@ -57,7 +80,32 @@ protected:
     void put(FastWriter& writer, const std::string& key, Serializable & value);
     
     template<typename E>
-    void putValue(FastWriter& writer,const std::vector<E>& valueArray);
+    void put(FastWriter& writer, const std::string& key, std::vector<E>& valueArray);
+    
+    template<typename T>
+    void get(FastReader& reader,const std::string& key,T & value){
+        Serializable& obj = dynamic_cast<Serializable&>(value);
+        FastReader objReader(reader.getRaw(key));
+        obj.deserialize(objReader);
+    }
+    
+    template<typename T>
+    void get(FastReader& reader,const std::string& key,std::vector<T> & data){
+        auto & rawValue = reader.getRaw(key);
+        if(rawValue.IsArray()){
+            for(int i =0;i<rawValue.Size();i++){
+                T temp;
+                Serializable& obj = temp;
+                FastReader objReader(rawValue[i]);
+                obj.deserialize(objReader);
+                data.push_back(std::move(temp));
+            }
+        }else{
+            //should be an error
+        }
+        
+        
+    }
     
 private:
     std::vector<Field> __fields;
@@ -71,10 +119,11 @@ void Serializable::put(FastWriter& writer,const std::string& key, Serializable &
 }
 
 template<typename E>
-void Serializable::putValue(FastWriter& writer,const std::vector<E>& valueArray){
+void Serializable::put(FastWriter& writer,const std::string& key, std::vector<E>& valueArray){
+    writer.putValue(key);
     writer.startArray();
-    for (const E& ele : valueArray) {
-        const Serializable* obj = dynamic_cast<const Serializable*>(&ele);
+    for (E& ele : valueArray) {
+        Serializable* obj = dynamic_cast<Serializable*>(&ele);
         writer.startObject();
         obj->serialize(writer);
         writer.endObject();

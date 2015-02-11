@@ -47,7 +47,15 @@ public:
 		const rapidjson::Value& value = m_data[name.c_str()];
 		return convert<TValue>(value);
 	}
-
+    
+    bool has(const std::string & name){
+       return m_data.HasMember(name.c_str());
+    }
+    
+    rapidjson::Value& getRaw(const std::string & name){
+        return m_data[name.c_str()];
+    }
+    
 	template<typename TValue>
 	TValue convert(const rapidjson::Value& value){
 		TValue rt;
