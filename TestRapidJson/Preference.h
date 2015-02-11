@@ -25,7 +25,7 @@ public:
         reg("1",FieldType::BOOLEAN,&music);
         reg("2",FieldType::INT,&nothing);
         reg("3",FieldType::STRING,&temp);
-//        reg("4",FieldType::VECTOR_INT,&testv);
+        reg("4",FieldType::VECTOR_INT,&testv);
     }
 };
 #endif /* defined(__TestRapidJson__Preference__) */

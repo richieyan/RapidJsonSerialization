@@ -132,13 +132,12 @@ void fill_player(Player &p){
     p.preference.temp ="perference";
     {
     {
-        Hero h("nothing_hero",1,1.0);
-    Hero h1("hero1",12,188.0);
-    Hero h2("hero2",121,188.0);
-    Hero h3("hero3",155,188.0);
-    p.heros.push_back(h1);
-    p.heros.push_back(h2);
-    p.heros.push_back(h3);
+        Hero h1("hero1",12,188.0);
+        Hero h2("hero2",121,188.0);
+        Hero h3("hero3",155,188.0);
+        p.heros.push_back(h1);
+        p.heros.push_back(h2);
+        p.heros.push_back(h3);
     }
         cout << "----------destroy heros" << endl;
     }
@@ -148,6 +147,8 @@ int main(int, char*[]) {
     fill_player(p);
     cout << "------------end fill player------" <<endl;
     std::string data = test_serialize(p);
+    cout << "-----result------" << endl;
+    cout << data.c_str() << endl;
     cout << "-----------deserialize------" << endl;
     test_deserialize(data);
     return 0;
