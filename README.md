@@ -1,6 +1,6 @@
 # RapidJsonSerialization
 A simple C++ implementation of serialization by rapid json
-####Movtivation
+####Motivation
 I need a simple and easy implementation of serialiaztion framework, and cannot find a suitable one.<br/>
 I use the serialization to store my game data in local storage by key value style. <br/>
 I dont like sqlite way to store game data, because i have to handle sql things.<br/>
